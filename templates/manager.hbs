@@ -1,0 +1,96 @@
+<section class="standard-form tfs-manager">
+  <div class="form-group tfs-heading">
+    <div class="tfs-heading-text">
+      <h2>{{tokenName}}</h2>
+      {{#if actorMode}}
+      <p class="hint">World Actor Forms — works without a token on a scene</p>
+      {{else}}
+      <p class="hint">Placed Token Forms — Current Actor: {{currentActor}}</p>
+      {{/if}}
+    </div>
+    <button type="button" data-action="save" {{#unless canManage}}disabled{{/unless}} title="Save current form">
+      <i class="fa-solid fa-floppy-disk"></i> Save Current
+    </button>
+  </div>
+
+  {{#if mismatched}}
+  <fieldset>
+    <legend><i class="fa-solid fa-triangle-exclamation"></i> Actor Changed</legend>
+    <p class="hint">The Actor on this token was changed outside Token Form Storage. Register it before switching forms.</p>
+    <button type="button" data-action="recover"><i class="fa-solid fa-rotate"></i> Register Current Actor</button>
+  </fieldset>
+  {{/if}}
+
+  <fieldset>
+    <legend>Stored Forms ({{forms.length}})</legend>
+    <div class="tfs-table-wrap">
+      <table class="tfs-forms-table">
+        <thead><tr><th>Form</th><th>{{#if actorMode}}Source{{else}}Actor{{/if}}</th><th>Actions</th></tr></thead>
+        <tbody>
+        {{#each forms}}
+          <tr>
+            <td>
+              <div class="tfs-form-label">
+                <img src="{{image}}" alt="" class="tfs-thumbnail" />
+                <div>
+                  <strong>{{name}}</strong>
+                  {{#if active}}<div class="hint"><i class="fa-solid fa-check"></i> Active</div>{{/if}}
+                  {{#if missing}}<div class="hint">Missing Actor</div>{{/if}}
+                </div>
+              </div>
+            </td>
+            <td>{{actorName}}</td>
+            <td>
+              <div class="tfs-actions">
+                <button type="button" data-action="edit" data-form-id="{{id}}" {{#unless editAllowed}}disabled{{/unless}} title="{{#if editAllowed}}Open Actor sheet{{else}}Switch to this form to edit it{{/if}}" aria-label="Open Actor sheet"><i class="fa-solid fa-pen-to-square"></i></button>
+                {{#unless active}}
+                  <button type="button" data-action="switch" data-form-id="{{id}}" {{#unless allowed}}disabled{{/unless}} title="Switch to this form"><i class="fa-solid fa-arrow-right-arrow-left"></i> Switch</button>
+                {{/unless}}
+                <button type="button" data-action="rename" data-form-id="{{id}}" title="Rename form"><i class="fa-solid fa-i-cursor"></i></button>
+                {{#unless active}}
+                  <button type="button" data-action="remove" data-form-id="{{id}}" title="Remove stored form"><i class="fa-solid fa-trash"></i></button>
+                {{/unless}}
+              </div>
+            </td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Add Form</legend>
+    <div class="form-group">
+      <label for="tfs-select-{{tokenId}}">Actor</label>
+      <div class="form-fields">
+        <select id="tfs-select-{{tokenId}}" name="alternateActor">
+          <option value="">Select Actor...</option>
+          {{#each actors}}<option value="{{id}}">{{name}}</option>{{/each}}
+        </select>
+        <button type="button" data-action="add" {{#unless hasActors}}disabled{{/unless}}><i class="fa-solid fa-plus"></i> Add</button>
+      </div>
+    </div>
+    <div class="tfs-secondary-actions">
+      {{#if canClone}}<button type="button" data-action="clone"><i class="fa-solid fa-copy"></i> Clone Current Actor</button>{{/if}}
+      {{#if actorMode}}
+        <button type="button" data-action="duplicate"><i class="fa-solid fa-copy"></i> Save Current as Another Form</button>
+      {{else}}
+        {{#unless linked}}<button type="button" data-action="duplicate"><i class="fa-solid fa-camera"></i> Save Form Snapshot</button>{{/unless}}
+      {{/if}}
+    </div>
+    {{#if actorMode}}
+      <p class="hint">The selected Actor is copied as a saved form. Switching replaces this world's Actor stats, spells, features, items, effects and artwork, without changing its Actor ID. Only Actors of the same sheet type can be added.</p>
+    {{else}}
+      <p class="hint">
+        {{#if linked}}Linked token: Each form uses its own world Actor.
+        {{else}}Unlinked token: HP, items, and effect changes are saved for each form.{{/if}}
+      </p>
+    {{/if}}
+  </fieldset>
+  {{#if actorMode}}
+    <p class="hint">No placed token is required. New tokens use the currently active Actor form. Linked tokens on scenes also use the new stats; GMs synchronize their artwork when switching.</p>
+  {{else}}
+    <p class="hint">Switching keeps this token's position, rotation, combat turn and token ID.</p>
+  {{/if}}
+</section>

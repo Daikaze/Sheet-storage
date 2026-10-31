@@ -1,44 +1,17 @@
 {
   "id": "token-form-storage",
   "title": "Token Form Storage",
-  "description": "Store and switch complete D&D 5e Actor forms on an existing map token, preserving token identity.",
-  "version": "1.0.1",
-  "authors": [
-    {
-      "name": "Daikaze"
-    }
-  ],
-  "compatibility": {
-    "minimum": "14",
-    "verified": "14",
-    "maximum": "14"
-  },
+  "description": "Save and switch full D&D 5e actor forms from a world Actor sheet even without a placed token, or switch forms on individual scene tokens.",
+  "version": "1.1.0",
+  "authors": [{"name": "Daikaze"}],
+  "compatibility": {"minimum": "14", "verified": "14", "maximum": "14"},
   "relationships": {
-    "systems": [
-      {
-        "id": "dnd5e",
-        "type": "system",
-        "compatibility": {
-          "minimum": "6.0.6",
-          "verified": "6.0.6"
-        }
-      }
-    ]
+    "systems": [{"id": "dnd5e", "type": "system", "compatibility": {"minimum": "6.0.6", "verified": "6.0.6"}}]
   },
-  "esmodules": [
-    "scripts/main.mjs"
-  ],
-  "styles": [
-    "styles/forms.css"
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
+  "esmodules": ["scripts/main.mjs"],
+  "styles": ["styles/forms.css"],
+  "languages": [{"lang": "en", "name": "English", "path": "lang/en.json"}],
   "url": "https://github.com/Daikaze/Sheet-storage",
   "manifest": "https://raw.githubusercontent.com/Daikaze/Sheet-storage/main/module.json",
-  "download": "https://raw.githubusercontent.com/Daikaze/Sheet-storage/main/token-form-storage-v1.0.1.zip"
+  "download": "https://raw.githubusercontent.com/Daikaze/Sheet-storage/main/token-form-storage-v1.1.0.zip"
 }

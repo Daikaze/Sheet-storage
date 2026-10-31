@@ -1,0 +1,24 @@
+/* Layout only. The manager uses Foundry VTT's native ApplicationV2/window
+ * styles, form-group, form-fields, fieldset, table, button, and hint classes.
+ * No module-defined theme, palette, backgrounds, or button skins. */
+.token-form-storage-app .window-content { overflow-y: auto; }
+.token-form-storage-app .tfs-manager { padding: 0.5rem; }
+.token-form-storage-app .tfs-heading { display: flex; align-items: center; gap: 0.75rem; }
+.token-form-storage-app .tfs-heading-text { flex: 1; min-width: 0; }
+.token-form-storage-app .tfs-heading h2 { margin: 0; }
+.token-form-storage-app .tfs-heading .hint { margin: 0.2rem 0 0; }
+.token-form-storage-app .tfs-heading button { flex: none; }
+.token-form-storage-app fieldset { margin: 0.5rem 0; min-width: 0; }
+.token-form-storage-app .tfs-table-wrap { overflow-x: auto; }
+.token-form-storage-app .tfs-forms-table { width: 100%; margin: 0; }
+.token-form-storage-app .tfs-forms-table td { vertical-align: middle; }
+.token-form-storage-app .tfs-forms-table th:last-child { text-align: right; }
+.token-form-storage-app .tfs-form-label { display: flex; gap: 0.5rem; align-items: center; min-width: 8rem; }
+.token-form-storage-app .tfs-thumbnail { width: 36px; height: 36px; object-fit: contain; flex: none; }
+.token-form-storage-app .tfs-actions { display: flex; align-items: center; justify-content: flex-end; gap: 0.2rem; }
+.token-form-storage-app .tfs-actions button { flex: none; width: auto; min-width: 2rem; }
+.token-form-storage-app .tfs-secondary-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.token-form-storage-app .form-fields select { flex: 1; min-width: 0; }
+.token-form-storage-app .hint { font-size: var(--font-size-12, 12px); }
+/* Token HUD control uses the same core control-icon classes, no custom skin. */
+.tfs-hud-control.control-icon { cursor: pointer; }
