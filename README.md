@@ -1,29 +1,39 @@
 # Token Form Storage
 
-**Foundry VTT v14 • D&D 5e 6.0.6 • v1.0.0**
+Foundry VTT **v14** / D&D 5e **6.0.6** — version **1.0.1**
 
-Store and switch complete Actor forms on an existing placed token without dragging a replacement. Changes include artwork, actor stats, HP, abilities, attacks, spells, features, items, and effects. Token position, ID, and combatant are preserved.
+Store multiple complete world Actor forms on a placed token, then switch between them without dragging a replacement token. Preserves token ID, position, combat turn and rotation while switching art, dimensions, HP, stats, features, items and effects.
 
 ## Install through Foundry
 
-In Foundry Setup go to **Add-on Modules → Install Module**, then paste this Manifest URL:
+Use the following manifest in **Setup → Add-on Modules → Install Module**:
 
 ```text
 https://raw.githubusercontent.com/Daikaze/Sheet-storage/main/module.json
 ```
 
-The manifest downloads the packaged ZIP from this repository.
+The manifest installs the **v1.0.1** ZIP automatically. Restart Foundry and enable the module.
 
-## Use
+[Download the v1.0.1 ZIP](https://raw.githubusercontent.com/Daikaze/Sheet-storage/main/token-form-storage-v1.0.1.zip).
 
-1. Place a token and select it.
-2. Open its Actor sheet and choose **Token Forms**, or use the Token HUD layers control.
-3. Choose another world Actor and click **Add**, or clone the current Actor into a new independent form (GM only).
-4. Click **Switch** on any saved form. The token remains on the map.
-5. Unlinked tokens remember their HP, item and effect overrides separately per form. Linked token forms use their referenced world Actors.
+## How to use
 
-## Permissions and limitations
+1. Place a token on the scene and select it.
+2. Open its Actor sheet, select **Token Forms** from the sheet header or use the layers icon on the Token HUD.
+3. Choose an Actor from the world sidebar, then **Add** it to the stored forms. Or clone the active Actor to make a separate editable world Actor (GM only).
+4. Click **Switch**. A single token switches the entire form without moving or changing identity.
+5. Unlinked token forms keep their own HP/item/effect state. Linked forms use their underlying world Actor.
 
-GMs can manage any token; players need ownership and update permission. Storage is on individual placed tokens, not on the world Actor's prototype token. For linked Actors, edits are shared by all linked tokens. Back up your world and test compatibility with Midi-QOL or other automation modules before campaign use.
+Saved forms are flags stored on the placed token. This is not a global Actor prototype-token storage system.
 
-Source code and templates are included inside the distribution ZIP. This initial version was syntax checked and passed automated storage tests, but has not been live-tested in Foundry v14.
+## v1.0.1 changes
+
+- Fixed **"Token Form Storage: width must be a number"** when switching forms.
+- Numeric token dimensions remain plain numbers, rather than object-replacement operators.
+- Migrates legacy width/height values stored as numeric strings when switching.
+- Replaced all custom dark-card colors and button skins with **native Foundry ApplicationV2 styling**, fieldsets, tables, and buttons.
+- Expanded automated tests to include primitive field validation and legacy width/height normalization.
+
+**Quality notes:** JavaScript syntax checks and six Node-based regression tests pass. This release has not yet been live-tested inside a Foundry v14 + D&D 5e 6.0.6 world. Back up before testing major transformations and check integration with third-party modules such as Midi-QOL.
+
+The previous v1.0.0 package remains available for rollback.

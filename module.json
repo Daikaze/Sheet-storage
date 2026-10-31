@@ -1,8 +1,8 @@
 {
   "id": "token-form-storage",
   "title": "Token Form Storage",
-  "description": "Store alternate complete D&D 5e actor forms on a placed token and switch in place without moving or replacing the token.",
-  "version": "1.0.0",
+  "description": "Store and switch complete D&D 5e Actor forms on an existing map token, preserving token identity.",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Daikaze"
@@ -40,5 +40,5 @@
   ],
   "url": "https://github.com/Daikaze/Sheet-storage",
   "manifest": "https://raw.githubusercontent.com/Daikaze/Sheet-storage/main/module.json",
-  "download": "https://raw.githubusercontent.com/Daikaze/Sheet-storage/main/token-form-storage-v1.0.0.zip"
+  "download": "https://raw.githubusercontent.com/Daikaze/Sheet-storage/main/token-form-storage-v1.0.1.zip"
 }
